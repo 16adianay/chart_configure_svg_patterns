@@ -1,6 +1,9 @@
 .App {
   text-align: center;
 }
+.chart-class {
+  min-width: 1600px;
+}
 
 .App-logo {
   height: 40vmin;
