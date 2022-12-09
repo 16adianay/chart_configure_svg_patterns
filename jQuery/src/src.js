@@ -15,6 +15,7 @@ $(() => {
         },
         customizePoint: (info) => {
             const style = {};
+
             switch(info.argument) {
                 case 'Monday':
                     style.color = 'url(#Gradient1)'

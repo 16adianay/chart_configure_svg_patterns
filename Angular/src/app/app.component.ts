@@ -2,7 +2,7 @@ import { Component, ViewChild } from "@angular/core";
 
 import {DxDataGridComponent, DxDataGridModule} from 'devextreme-angular';
 
-import { Order, Service } from './app.service';
+import { Item, Service } from './app.service';
 import DevExpress from "devextreme";
 import dxDataGrid = DevExpress.ui.dxDataGrid;
 
@@ -13,28 +13,42 @@ import dxDataGrid = DevExpress.ui.dxDataGrid;
   providers: [Service]
 })
 export class AppComponent {
-  @ViewChild(DxDataGridComponent, { static: false }) dataGrid: DxDataGridComponent | undefined;
-
-
-  ds: Order[] | null;
-  orders: Order[];
+  dataSource: Item[] | null;
+  chartAttributes: any;
 
   constructor(service: Service) {
-    this.orders = service.getOrders();
-    this.ds = [];
+    this.dataSource = service.getDataSource();
+    this.chartAttributes = {
+      class: "chart-class"
+    };
+    this.customizePoint = this.customizePoint.bind(this);
   }
-  getFilteredAndSortedData() {
-    let grid: dxDataGrid | undefined = this.dataGrid?.instance;
-    let filterExpr = grid?.getCombinedFilter(true);
-    const dataSource = grid?.getDataSource();
-    const loadOptions = dataSource?.loadOptions();
 
-    dataSource
-      ?.store()
-      .load({ filter: filterExpr, sort: loadOptions?.sort, group: loadOptions?.group })
-      .then((result: any) => {
-        // your code...
-        this.ds = result;
-      });
+  customizePoint(info: any) {
+    let style: any = {};
+    console.log(info)
+    switch(info.argument) {
+      case 'Monday':
+        style.color = 'url(#Gradient1)'
+        break;
+      case 'Tuesday':
+        style.color = 'url(#Gradient2)'
+        break;
+      case 'Wednesday':
+        style.color = 'url(#Gradient3)'
+        break;
+      case 'Thursday':
+        style.color = 'url(#Pattern1)'
+        break;
+      case 'Friday':
+        style.color = 'url(#PointImage)'
+        break;
+      case 'Saturday':
+        style.color = 'url(#TriangleSvg)'
+        break;
+      default:
+        break;
+    }
+    return style;
   }
 }

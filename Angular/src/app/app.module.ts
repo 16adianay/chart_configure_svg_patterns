@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DxDataGridModule, DxButtonModule } from "devextreme-angular";
+import { DxChartModule } from "devextreme-angular";
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -9,8 +9,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    DxDataGridModule,
-    DxButtonModule
+    DxChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

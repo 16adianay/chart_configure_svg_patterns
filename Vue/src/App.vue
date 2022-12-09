@@ -4,6 +4,7 @@
       :data-source="dataSource"
       :customize-point="customizePoint"
   >
+    <DxSize :height="440"/>
     <DxSeries
         argument-field="day"
         value-field="count"
@@ -50,7 +51,8 @@ import {
   DxChart,
   DxSeries,
   DxLegend,
-  DxCommonPaneSettings
+  DxCommonPaneSettings,
+  DxSize
 } from 'devextreme-vue/chart';
 
 import service from "./data.js";
@@ -60,7 +62,8 @@ export default {
     DxChart,
     DxSeries,
     DxLegend,
-    DxCommonPaneSettings
+    DxCommonPaneSettings,
+    DxSize
   },
   data() {
     return {
@@ -69,9 +72,9 @@ export default {
     };
   },
   methods: {
-   customizePoint(info){
+   customizePoint(info) {
       const style = {};
-      console.log(info)
+
       switch(info.argument) {
         case 'Monday':
           style.color = 'url(#Gradient1)'
