@@ -1,84 +1,106 @@
 <template>
-  <div>
-    <DxButton @click="getFilteredAndSortedData" text="Get All Filtered And Sorted Data">
-    </DxButton>
-    <DxDataGrid
-        id="gridContainer"
-        :ref="dataGridRefName"
-        :data-source="orders"
-        key-expr="ID"
-        :show-borders="true"
-    >
-      <DxFilterRow :visible="true" />
-      <DxHeaderFilter :visible="true" />
-      <DxSearchPanel :visible="true" />
-    </DxDataGrid>
-    <br/>
-    <div className="title">Loaded data</div>
-    <br/>
-    <DxDataGrid
-        :data-source="ds"
-        key-expr="ID"
-        :show-borders="true"
-    >
-    </DxDataGrid>
-  </div>
+  <DxChart
+      :element-attr="chartAttributes"
+      :data-source="dataSource"
+      :customize-point="customizePoint"
+  >
+    <DxSeries
+        argument-field="day"
+        value-field="count"
+        type="bar"
+        hover-mode='none'
+    />
+    <DxLegend :visible="false"/>
+    <DxCommonPaneSettings
+        background-color='url(#Background)'
+    />
+  </DxChart>
+  <svg class="svg-patterns">
+    <defs>
+      <pattern id="Gradient1" patternUnits="userSpaceOnUse" width="4" height="4">
+        <path d="M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2" style="stroke:black; stroke-width:1" />
+      </pattern>
+      <linearGradient id="Gradient2" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="40%" stop-color="pink"/>
+        <stop offset="80%" stop-color="blue" stop-opacity="0.2"/>
+      </linearGradient>
+      <radialGradient id="Gradient3">
+        <stop offset="40%" stop-color="pink"/>
+        <stop offset="80%" stop-color="blue" stop-opacity="0.2"/>
+      </radialGradient>
+      <pattern id="Pattern1" patternUnits="userSpaceOnUse" x="0" y="0" width="10" height="10" >
+        <path d="M 0 0 L 10 0 L 5 10 z" fill="pink" stroke="blue" />
+        <rect x="5" y="5" width="5" height="5" fill="orange" />
+      </pattern>
+      <pattern id="PointImage" patternContentUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+        <image preserveAspectRatio="none" href="./images/image.jpg" width="300" height="200"/>
+      </pattern>
+      <pattern id="TriangleSvg" patternContentUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+        <path preserveAspectRatio="none" d="M 0 0 L 180 0 L 100 370 z" fill="pink" stroke="blue" />
+      </pattern>
+      <linearGradient id="Background" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="40%" stop-color="rgba(0, 174, 239, .5)"/>
+        <stop offset="80%" stop-color="rgb(3, 138, 255)" stop-opacity="0.2"/>
+      </linearGradient>
+    </defs>
+  </svg>
 </template>
 <script>
 import {
-  DxDataGrid,
-  DxHeaderFilter,
-  DxSearchPanel,
-  DxFilterRow,
-} from 'devextreme-vue/data-grid';
-import {DxButton} from "devextreme-vue/button"
+  DxChart,
+  DxSeries,
+  DxLegend,
+  DxCommonPaneSettings
+} from 'devextreme-vue/chart';
+
 import service from "./data.js";
 
 export default {
   components: {
-    DxDataGrid,
-    DxHeaderFilter,
-    DxSearchPanel,
-    DxFilterRow,
-    DxButton
+    DxChart,
+    DxSeries,
+    DxLegend,
+    DxCommonPaneSettings
   },
   data() {
     return {
-      orders: service.getOrders(),
-      dataGridRefName: 'dataGrid',
-      ds: []
-
+      dataSource: service.getDataSource(),
+      chartAttributes: {class: "chart-class"}
     };
   },
   methods: {
-    getFilteredAndSortedData(){
-
-      const grid = this.dataGrid;
-      const filterExpr = grid.getCombinedFilter(true);
-      const dataSource = grid.getDataSource();
-      const loadOptions = dataSource.loadOptions();
-
-      dataSource
-          .store()
-          .load({ filter: filterExpr, sort: loadOptions.sort, group: loadOptions.group })
-          .then((result) => {
-            // your code...
-            this.ds = result;
-          });
+   customizePoint(info){
+      const style = {};
+      console.log(info)
+      switch(info.argument) {
+        case 'Monday':
+          style.color = 'url(#Gradient1)'
+          break;
+        case 'Tuesday':
+          style.color = 'url(#Gradient2)'
+          break;
+        case 'Wednesday':
+          style.color = 'url(#Gradient3)'
+          break;
+        case 'Thursday':
+          style.color = 'url(#Pattern1)'
+          break;
+        case 'Friday':
+          style.color = 'url(#PointImage)'
+          break;
+        case 'Saturday':
+          style.color = 'url(#TriangleSvg)'
+          break;
+        default:
+          break;
+      }
+      return style;
     }
   },
-  computed: {
-    dataGrid: function() {
-      return this.$refs[this.dataGridRefName].instance;
-    },
-  }
 };
 </script>
 <style >
-.title {
-  width: 100%;
-  text-align: center;
-  font-family: "Helvetica Neue","Segoe UI",helvetica,verdana,sans-serif;
-  text-decoration: underline;
+.chart-class {
+  min-width: 1600px;
 }
 </style>
