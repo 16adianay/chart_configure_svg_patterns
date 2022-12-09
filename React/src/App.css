@@ -1,8 +1,13 @@
 .App {
   text-align: center;
 }
+
 .chart-class {
   min-width: 1600px;
+}
+
+.svg-patterns {
+  position: absolute;
 }
 
 .App-logo {

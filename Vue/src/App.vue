@@ -106,4 +106,8 @@ export default {
 .chart-class {
   min-width: 1600px;
 }
+
+.svg-patterns {
+  position: absolute;
+}
 </style>
