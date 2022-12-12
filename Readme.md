@@ -4,15 +4,10 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# DataGrid for DevExtreme - How to obtain all filtered and sorted rows
-<!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/542606441/)**
-<!-- run online end -->
+# Chart for DevExtreme - How to configure different svg patterns for appearance customization
 
-This example demonstrates how to obtain all filtered and sorted rows from the DataGrid component.
-
-To test this functionality, you can filter or sort data in the UI and press "Get All Filtered And Sorted Data". See results in the second grid.
-
+This example demonstrates how to configure different svg patterns to customize the Chart appearance.
+![img.png](img.png)
 To implement this functionality, access a bound Store object and pass [loadOptions](https://js.devexpress.com/Documentation/ApiReference/Data_Layer/DataSource/Methods/#loadOptions) along with the [combined filtering expression](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Methods/#getCombinedFilterreturnDataField) to its load() method. 
 
 ## Files to Look At
