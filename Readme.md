@@ -28,7 +28,7 @@ If you need to add a pattern as a background color, you can pass it to the [comm
 
 ## Documentation
 
-- [customizePoint(e)](https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/#customizePoint)
+- [customizePoint()](https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/#customizePoint)
 - [backgroundColor](https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/commonPaneSettings/#backgroundColor)
 
 
