@@ -6,9 +6,12 @@
 
 # Chart for DevExtreme - How to configure different svg patterns for appearance customization
 
-This example demonstrates how to configure different svg patterns to customize the Chart appearance.
+This example demonstrates how to configure different svg patterns to customize the Chart appearance:
+
 ![img.png](img.png)
-To implement this functionality, access a bound Store object and pass [loadOptions](https://js.devexpress.com/Documentation/ApiReference/Data_Layer/DataSource/Methods/#loadOptions) along with the [combined filtering expression](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Methods/#getCombinedFilterreturnDataField) to its load() method. 
+
+To implement this functionality, add the https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/#customizePoint function and 
+a bound Store object and pass [loadOptions](https://js.devexpress.com/Documentation/ApiReference/Data_Layer/DataSource/Methods/#loadOptions) along with the [combined filtering expression](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Methods/#getCombinedFilterreturnDataField) to its load() method. 
 
 ## Files to Look At
 
