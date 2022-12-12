@@ -34,5 +34,6 @@ If it's necessary to add a pattern as a background color, pass it to the [common
 ## Demos
 
 - [Chart - Point Image](https://js.devexpress.com/Demos/WidgetsGallery/Demo/Charts/PointImage/jQuery/Light/)
+- [Chart - Custom Legend Markers](https://js.devexpress.com/Demos/WidgetsGallery/Demo/Charts/CustomLegendMarkers/jQuery/Light/)
 
 
