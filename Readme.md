@@ -10,9 +10,8 @@ This example demonstrates how to configure different svg patterns to customize t
 
 ![img.png](img.png)
 
-To implement this functionality, add the https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/#customizePoint function and 
-a bound Store object and pass [loadOptions](https://js.devexpress.com/Documentation/ApiReference/Data_Layer/DataSource/Methods/#loadOptions) along with the [combined filtering expression](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxDataGrid/Methods/#getCombinedFilterreturnDataField) to its load() method. 
-
+To implement this functionality, add the [customizePoint](https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/#customizePoint) function and assign the required point to the pattern reference.
+If you need to add a pattern as a background color, you can pass it to the [commonPaneSettings|backgroundColor](https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/commonPaneSettings/#backgroundColor) property.
 ## Files to Look At
 
 - **jQuery**
