@@ -10,7 +10,7 @@ This example demonstrates how to configure different svg patterns to customize t
 
 ![img.png](img.png)
 
-To implement this functionality, add the [customizePoint](https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/#customizePoint) function and assign the pattern reference to the required point.
+To implement this functionality, add the [customizePoint](https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/#customizePoint) function and assign the pattern reference to the required point [color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxChart/Configuration/series/point/#color).
 If it's necessary to add a pattern as a background color, pass it to the [commonPaneSettings|backgroundColor](https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/commonPaneSettings/#backgroundColor) property.
 ## Files to Look At
 
@@ -29,6 +29,7 @@ If it's necessary to add a pattern as a background color, pass it to the [common
 ## Documentation
 
 - [customizePoint()](https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/#customizePoint)
+- [color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxChart/Configuration/series/point/#color)
 - [backgroundColor](https://js.devexpress.com/Documentation/22_1/ApiReference/UI_Components/dxChart/Configuration/commonPaneSettings/#backgroundColor)
 
 ## Demos
